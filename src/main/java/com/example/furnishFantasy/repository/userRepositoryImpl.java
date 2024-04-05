@@ -19,7 +19,6 @@ public class userRepositoryImpl {
 //	@Qualifier(value="mysqlJdbcTemplate")
 	JdbcTemplate jdbcTemplate;
 	public List<User> getUser(){
-		
 		String query = "SELECT cust_name,cust_email FROM furnishFantasy.user";
 		List<User> user =jdbcTemplate.query(query, new userMapper());
 		return user;
