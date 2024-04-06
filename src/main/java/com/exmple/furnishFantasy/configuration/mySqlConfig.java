@@ -13,8 +13,8 @@ public class mySqlConfig {
 	    public DataSource getDataSource() {
 	        return DataSourceBuilder.create()
 	        .driverClassName("com.mysql.cj.jdbc.Driver")
-	        .url("jdbc:mysql://localhost:3306/furnishFantasy?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC")
-	        .username("root")
+	        .url("jdbc:mysql://backend-server-01.mysql.database.azure.com:3306/furnishfantasy?useSSL=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC")
+	        .username("backend_developer")
 	        .password("Yugb@0409")
 	        .build();
 	    }
