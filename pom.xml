@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
+    <parent>	
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.6.4</version> <!-- Updated to a compatible version of Spring Boot -->
@@ -57,9 +55,6 @@
             <version>3.12.0</version>
         </dependency>
 
-
-        <!-- Remove these Hibernate dependencies -->
-
         <dependency>
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
@@ -79,6 +74,33 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-spring-apps-maven-plugin</artifactId>
+    <version>1.19.0</version>
+                <configuration>
+                    <subscriptionId>b259ae5d-1530-497d-925b-2edf87a8f134</subscriptionId>
+                    <resourceGroup>furnishSpring</resourceGroup>
+                    <clusterName>furnishspring</clusterName>
+                    <sku>Consumption</sku>
+                    <appName>furnishantasy</appName>
+                    <isPublic>true</isPublic>
+                    <deployment>
+                        <cpu>1</cpu>
+                        <memoryInGB>2</memoryInGB>
+                        <instanceCount>1</instanceCount>
+                        <runtimeVersion>Java 17</runtimeVersion>
+                        <resources>
+                            <resource>
+                                <directory>${project.basedir}/target</directory>
+                                <includes>
+                                    <include>*.jar</include>
+                                </includes>
+                            </resource>
+                        </resources>
+                    </deployment>
                 </configuration>
             </plugin>
         </plugins>
